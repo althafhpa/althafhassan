@@ -1,0 +1,267 @@
+:root {
+    --primary-color: #FFAC1C;
+    --primary-light: #FFD180;
+    --primary-dark: #E69500;
+    --text-color: #333;
+    --text-light: #666;
+    --background: #fff;
+    --background-alt: #f7f7f7;
+    --border-color: #eaeaea;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Noise Effect */
+.noise-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.03;
+}
+
+.noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0');
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+/* Make the contact form iframe responsive */
+.contact-form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Skill Tags Styling */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Improved skill tag styling for better visibility */
+.skill-tag {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background-color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle gradient overlay to ensure text readability */
+.skill-tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+/* Position the text above the gradient */
+.skill-tag {
+  position: relative;
+  z-index: 2;
+}
+
+/* Specific colors for different skill types with improved contrast */
+.skill-tag.drupal { background-color: #0678BE; }
+.skill-tag.javascript { background-color: #F0DB4F; color: #323330; }
+.skill-tag.nodejs { background-color: #68A063; }
+.skill-tag.css { background-color: #264de4; }
+.skill-tag.accessibility { background-color: #E91E63; }
+.skill-tag.performance { background-color: #FF9800; color: #333; }
+.skill-tag.html { background-color: #E34C26; }
+.skill-tag.python { background-color: #3776AB; }
+.skill-tag.git { background-color: #F05032; }
+.skill-tag.responsive { background-color: #2EAD33; }
+.skill-tag.typescript { background-color: #2088FF; }
+.skill-tag.ai { background-color: #9C27B0; }
+.skill-tag.test-automation { background-color: #FF5722; }
+.skill-tag.cypress { background-color: #17202C; }
+.skill-tag.playwright { background-color: #2EAD33; }
+.skill-tag.selenium { background-color: #43B02A; }
+
+/* Add hover effect for better interaction */
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.project-image {
+    flex-shrink: 0;
+    width: 120px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    background: none; /* Remove background */
+    border-radius: 0; /* Remove border radius */
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Specific styling for logo images */
+.project-image img[alt="UTS Logo"] {
+    width: 120px; /* Smaller width for the logo */
+    height: auto;
+}
+
+/* Project tags styling as buttons */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    cursor: default;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Different colors for different tags */
+.tag:nth-of-type(1) { background-color: #0678BE; } /* Drupal blue */
+.tag:nth-of-type(2) { background-color: #68A063; } /* Node.js green */
+.tag:nth-of-type(3) { background-color: #4A4A4A; } /* Cypress dark gray */
+.tag:nth-of-type(4) { background-color: #2EAD33; } /* Playwright green */
+.tag:nth-of-type(5) { background-color: #2088FF; } /* GitHub Actions blue */
+.tag:nth-of-type(6) { background-color: #FF5700; } /* oEmbed orange */
+
+/* Alternative: You can also use specific classes for more control */
+.tag.drupal { background-color: #0678BE; }
+.tag.nodejs { background-color: #68A063; }
+.tag.cypress { background-color: #4A4A4A; }
+.tag.playwright { background-color: #2EAD33; }
+.tag.github-actions { background-color: #2088FF; }
+.tag.oembed { background-color: #FF5700; }
+
+/* Add styling for the visualization section */
+.dynamic-visualization {
+  margin: 40px 0;
+  text-align: center;
+}
+
+#skillsVisualization {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.visualization-note {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+
+

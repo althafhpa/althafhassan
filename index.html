@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Althaf Hassan - Developer & Designer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite"></script>
+    <script src="js/market-data-service.js"></script>
+    <script src="js/visualization.js"></script>
+
+</head>
+<body>
+<div class="noise-container">
+    <div class="noise"></div>
+</div>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Althaf Hassan</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact" class="contact-button">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="greeting">Hi, I'm</span>
+                    <span class="name">Althaf</span>
+                </h1>
+                <h2 class="subtitle">Web Developer</h2>
+                <p class="description">
+                    I build exceptional digital experiences with a focus on accessibility,
+                    performance, and delight. Currently working on exciting projects that
+                    push the boundaries of web development.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="primary-button">See my work</a>
+                    <a href="#contact" class="secondary-button">Get in touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <div class="blob"></div>
+                    <!-- Dynamic Technology Trend Visualization using Tensorflow.js -->
+                    <div class="dynamic-visualization">
+                        <h3>Technology Trend Visualization</h3>
+                        <canvas id="skillsVisualization" width="600" height="400"></canvas>
+                        <p class="visualization-note">Demonstrate Tensorflow.js - dynamic unique visualization generated based on current tech trends</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <br>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate developer with a background in design and a love for creating
+                        intuitive, accessible, and beautiful web experiences. My journey in tech started
+                        with a Bachelor of Engineering in Computer Science (2005), and I've been building things for the web ever since.
+
+                        <br><br>
+
+                        I specialize in Drupal, but I also love working with other technologies. 
+                        I really enjoy exploring and learning new things.
+                        I have tried my hands on various projects, including
+                        building custom themes, modules, and integrations. My expertise extends to front-end development with HTML5, CSS3, and JavaScript.
+                        I have a keen eye for detail and a strong understanding of user experience principles,
+                         which allows me to create websites that are not only functional but also visually appealing. 
+                        <br> <br>
+                    </p>
+                    <br>
+                    <h2 class="section-title">Latest Update</h2>
+                    <br>
+                    <p>
+                        Recently, I have been focusing on enhancing my skills in AI and machine learning.
+                        I have been exploring various AI models and frameworks, including TensorFlow and PyTorch.
+                        I have been working on some spike projects to understand the practical applications of AI in web development.
+                        I have been experimenting with integrating AI models into web applications,
+                        such as using natural language processing for chatbots and recommendation systems.
+                    
+                        <br><br>
+                        
+                        For example, TensorFlow.js allows developers to run machine learning models directly in the browser, enabling real-time image processing and analysis.
+
+                        <br><br>
+
+                        I have also been exploring the use of AI in test automation, particularly in visual regression testing using TensorFlow.js. 
+
+                         TensorFlow.js allows developers to build and train machine learning models directly in the browser, enabling real-time predictions and interactions.
+                        TensorFlow includes a variety of tools and libraries specifically designed for computer vision. 
+
+                        <br><br>
+
+                        Since Tensorflow.js provide compute power in browser, it can be used for visual regression testing. 
+                        TensorFlow provides robust support for GPU acceleration, significantly speeding up computations, especially for machine learning tasks.
+                        This is particularly useful for visual regression testing, where we can use TensorFlow.js to analyze images and detect visual changes in web applications.
+                        TensorFlow.js can be used to create custom models for visual regression testing, allowing developers to train models on specific datasets and use them to detect visual changes in web applications.
+                        This approach can be particularly useful for testing complex web applications where traditional visual regression testing tools may struggle to accurately detect changes.
+                        
+                        <br><br>
+
+                        Apart from test automation, there are quite a lot of usecase of tensorflow.js for image recognition nowaadays, such as identifying objects in images, detecting faces, and even recognizing text within images.
+                        So this is very useful where we just need to store feature information instead of storing images and also real-time processing of images. 
+                        
+                        <br><br>
+                       
+                        TensorFlow Lite allows models to run directly on edge devices (cameras, smartphones, IoT devices), so images never leave the device. 
+                        TensorFlow Lite is a lightweight version of TensorFlow designed for mobile and edge devices, enabling efficient on-device machine learning.
+                        So lot of benefits from security point of view and also savings and scalabilty benefits by providing Edge Computing where TensorFlow Lite allows models to run directly on edge devices (cameras, smartphones, IoT devices), so images never leave the device.
+                      
+                        <br><br>
+
+                        In fact, the dynamic technology trend visualization you see at the top of this page is powered by TensorFlow.js. 
+                        It analyzes my skill sets in this webpage in real-time to generate a unique data visualization showing technology adoption trends and relationships between different skills. 
+                        The visualization uses tensor operations to create the gradient backgrounds and applies mathematical transformations to generate the trend lines - all computed directly in your browser without any server-side processing. 
+                        This demonstrates how machine learning libraries can be used not just for data analysis but also for creating engaging, interactive visual elements.
+
+                        <br><br>
+
+                        There are some spike projects in my my GitHub repositories using Python, TensorFlow and various AI models mainly open source.
+                        Feel free to check out my GitHub repositories.
+                        
+                        <br><br>
+
+                        I will be updating my portfolio with more projects soon, including some exciting work with AI and machine learning.<br><br>
+
+                        Also, i am keen exploring more on tensorflow.js in web application so will keep posted on that aswell.
+
+                        <br><br>
+                       
+                        In my last role, i was involved with development work for the University of Technology Sydney (UTS) website migration project, 
+                        where I played a key role in migrating the website from Drupal to Optimizely. 
+                        
+                        So you can guess the number of pages that needs migration and the effort of testing required.
+                        So i started exploring test automation tools and decided to start with Cypress first and then tried playwright and custom test scripts using nodejs and puppeteer.
+                        Most work using Cypress and Playwright are for visual regression testing. Playwright do provice better option for multiple browser and device testing.
+
+                        <br><br>
+                        
+                        To speed up test, have used GitHub actions to run parallel jobs in GitHub Runners using custom workflow yml based on my requirements and matrx strategy.
+                       
+                        <br><br>
+
+                        One piece of work with nodejs and puppeteer that stands out is structural analaysis to group similar pages which helped to reduce the number of pages to test.
+                        The same concept of structural analysis can also be used for testing components. 
+                        Basically you can use structural analysis to benchmark against a fully manually tested component in a page against components in other pages. 
+                       
+                        <br><br>
+
+                        For analysing performance I have created a desktop app using Electron for google lighthouse reports, which helps in analyzing the performance of web applications. 
+                        One of the reason for this development was most of the available tools were not accessible behind login page mainly Okta or other SSO based authentication. 
+                        The desktop app also helps generating reports easily and quickly withot the need to run on CI pipeline. 
+
+                        <br><br>
+
+                        Also given lighthouse reports are not consistent, the median of the reports are used to analyze the performance of the web application. 
+                        
+                        <br><br>
+
+                        Also another tool i tried to use is <a href="https://www.sitespeed.io/" target="_blank">sitespeed.io</a> which is a great tool for analyzing the performance of web applications.
+                        It provides a lot of features such as analyzing the performance of web applications, generating reports, and providing recommendations for improving the performance of web applications.
+                        It also provides a lot of features such as analyzing the performance of web applications, generating reports, and providing recommendations for improving the performance of web applications.
+
+                        <br><br>
+                        
+                        I will be updating my portfolio with more on test automation work soon, including some exciting work with AI and machine learning.
+
+                        <br><br>
+                        I am always looking for new challenges and opportunities to grow as a developer.
+                        Whether it's building a new feature, optimizing performance, or enhancing accessibility, I approach every project with enthusiasm and a commitment to excellence.
+
+                        <br><br>
+                        I believe in the power of collaboration and continuous learning, always striving
+                        to improve my skills and contribute to the community.
+
+                        <br><br>
+                    </p>
+                    </div>  
+                   <div class="skills">
+                        <h3>Skills & Technologies</h3>
+                        <br>
+                        <ul class="skill-list">
+                             <li class="skill-tag drupal">Drupal</li>
+                            <li class="skill-tag javascript">JavaScript</li>
+                            <li class="skill-tag nodejs">Node.js</li>
+                            <li class="skill-tag css">CSS/SCSS</li>
+                            <li class="skill-tag accessibility">Accessibility</li>
+                            <li class="skill-tag performance">Performance</li>
+                            <li class="skill-tag html">HTML5</li>
+                            <li class="skill-tag python">Python</li>
+                            <li class="skill-tag git">Git</li>
+                            <li class="skill-tag responsive">Responsive Design</li>
+                            <li class="skill-tag typescript">GitHub Actions</li>
+                            <li class="skill-tag ai">AI & Machine Learning</li>
+                            <li class="skill-tag test-automation">Test Automation</li>
+                            <li class="skill-tag cypress">Cypress</li>
+                            <li class="skill-tag playwright">Playwright</li>
+                            <li class="skill-tag selenium">PHP</li>  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Work</h2>
+            <br>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image"> <img src="images/uts.svg" alt="UTS Logo"></div>
+                    <br>
+                    <div class="project-content">
+                        <h3 class="project-title">UTS Website Migration</h3>
+                         <br>
+                        <p class="project-description">
+                            An iterative approach to migrate a large university website by keeping some existing website content pages but served from the new website CMS.
+
+                            <br><br>
+
+                            After exploring few options, oEmbed stood right fit given the minimal work required and also the benefit oEmbed brings to avoid CORS.
+
+                            <br><br>
+                            I have created a Drupal module to oEmbed Drupal pages. It uses Drupalsubrequest and the proceesing the response with various rules and returning the valid oEmbed response.
+                            Please feel free to view the Drupal code source code for oEmbed in my GitHub repository.
+
+                            
+                            <br><br>
+                            I have spiked using Declarative Shadow and Dynamic Declarative Shadow with oEmbed so there is no conflict with Drupal CSS and JS with Optimizely. 
+                            With Dynamic Declarative shadow it process in the server side and makes implementation clean and easier.
+
+                            <br><br>
+                            Dynamic Declarative Shadow also overcomes the issues that might arise from hidden HTML of embed pages, there by causing SEO impact. 
+                            There are some spike works in my GitHub reppository to demonstrate Dynamic Shadow Dom and Shadow Dom.
+                            Please feel free to check.
+
+                            <br><br>
+                            Apart from this i have been helping Team with Test Automation, Analysis redirects for SEO,
+                            exploring and spike future content migration from Drupal entities especially from Content Type Node.
+                            Feel free to look at Drupal module to explore contents using API, Forms and also using a Content Explorer interface that allows to filter fields and list and download to a CSV format.
+                            You could build something similar using Drupal Views but it would require creating individual views manuallly for each content type and alsa adding extra view formatters if it is missing in your site.
+
+                            <br><br>
+                            Finally, given we only need the old Drupal site for oEmbed response and for internal purpose, i have come up with a Drupal module to restrict routes by IP with backend forms with configurable Routes and IP.
+                            You could achieve something like this on Varnish aswell but you might reach out to platform support for configuration help.
+
+                            <br><br>
+                            Another piece of work i have done is to help migrating Drupal assets. 
+                            Given its a massive websites with thousands of images and documents, i have created a CLI using RUST to make the process of migrating assets easier and upto date.
+                            There is also a Drupal module to get the latest assets files data from Drupal.  
+                            Feel free to look at the Drupal module for Access Restriction by Routes, CLI and other Drupal modules in my GitHub repository. 
+
+                            <br><br>
+                            I will be updating and archiving my recent projects. Please feel free to check my older works on my Resume.
+
+                            <br><br>
+                            Thanks for checking out and if you have any questions feel free to reach out to me.
+
+                             <br><br>
+                        </p>
+                        <div class="project-tags">
+                        <span class="tag">Drupal</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Cypress</span>
+                        <span class="tag">Playwright</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">oEmbed</span>
+                    </div>
+
+                        <div class="project-links">
+                            <a href="#" class="project-link">Checkout my GitHub Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Have a project in mind or just want to chat? Feel free to reach out!
+                </p>
+                <div class="contact-form-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfd65jk42SAevD9uFtvjNUcdxIJYDX_8j4uLb9JhkVtu67hZg/viewform?embedded=true" 
+                            width="100%" height="856" frameborder="0" marginheight="0" marginwidth="0">
+                        Loading…
+                    </iframe>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">GitHub</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>© 2025 Althaf Hassan. All rights reserved.</p>
+            <p>Built with ❤️ and a nice ☕</p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
