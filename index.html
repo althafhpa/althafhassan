@@ -152,8 +152,13 @@
                         where I played a key role in migrating the website from Drupal to Optimizely. 
                         
                         So you can guess the number of pages that needs migration and the effort of testing required.
-                        So i started exploring test automation tools and decided to start with Cypress first and then tried playwright and custom test scripts using nodejs and puppeteer.
+                        So i started exploring test automation tools and decided to start with Cypress and then explore playwright and custom node.js scripts using puppeteer.
                         Most work using Cypress and Playwright are for visual regression testing. Playwright do provice better option for multiple browser and device testing.
+
+                        <br><br>
+                        
+                        Some test actually doesn't require any framework and can be simply created using node.js script with browser automation tools like puppeteer. For example, you can create a performance test using google lighthouse just by using node.js script.
+                        Lighthouse desktop app that gets the median result in my repository is an example for this.
 
                         <br><br>
                         
@@ -161,19 +166,10 @@
                        
                         <br><br>
 
-                        One piece of work with nodejs and puppeteer that stands out is structural analaysis to group similar pages which helped to reduce the number of pages to test.
+                        One piece of work with nodejs that stands out is structural analaysis to group similar pages which helped to reduce the number of pages to test.
                         The same concept of structural analysis can also be used for testing components. 
                         Basically you can use structural analysis to benchmark against a fully manually tested component in a page against components in other pages. 
-                       
-                        <br><br>
-
-                        For analysing performance I have created a desktop app using Electron for google lighthouse reports, which helps in analyzing the performance of web applications. 
-                        One of the reason for this development was most of the available tools were not accessible behind login page mainly Okta or other SSO based authentication. 
-                        The desktop app also helps generating reports easily and quickly withot the need to run on CI pipeline. 
-
-                        <br><br>
-
-                        Also given lighthouse reports are not consistent, the median of the reports are used to analyze the performance of the web application. 
+                        I will soon update my repository with code related to structural analysis.
                         
                         <br><br>
 
@@ -240,45 +236,55 @@
 
                             <br><br>
 
-                            After exploring few options, oEmbed stood right fit given the minimal work required and also the benefit oEmbed brings to avoid CORS.
+                            After exploring few options, oEmbed stood right fit given the minimal work required and also the benefit oEmbed brings to avoid security related issues like CORS.
 
                             <br><br>
-                            I have created a Drupal module to oEmbed Drupal pages. It uses Drupalsubrequest and the proceesing the response with various rules and returning the valid oEmbed response.
-                            Please feel free to view the Drupal code source code for oEmbed in my GitHub repository.
-
                             
+                            I have created a Drupal module to oEmbed Drupal pages. It uses Drupal Subrequest for the request and the proceesing the response with various rules and returning the valid oEmbed response.
+                            I have added a Drupal module that allows to oEmbed Drupal content. I think it require bit more configuration option before submitting to Drupal community. 
+                            Please feel free to check Drupal oEmbed module my GitHub repository.
+
                             <br><br>
-                            I have spiked using Declarative Shadow and Dynamic Declarative Shadow with oEmbed so there is no conflict with Drupal CSS and JS with Optimizely. 
+                            
+                            If you want to avoid any conflicts with css or js in the website that will oEmbed to Drupal page try using Declarative Shadow or Dynamic Declarative Shadow with oEmbed.
                             With Dynamic Declarative shadow it process in the server side and makes implementation clean and easier.
 
                             <br><br>
+                            
                             Dynamic Declarative Shadow also overcomes the issues that might arise from hidden HTML of embed pages, there by causing SEO impact. 
-                            There are some spike works in my GitHub reppository to demonstrate Dynamic Shadow Dom and Shadow Dom.
+                            There are some example demos in my GitHub reppository to demonstrate Dynamic Shadow Dom and Shadow Dom.
                             Please feel free to check.
 
                             <br><br>
-                            Apart from this i have been helping Team with Test Automation, Analysis redirects for SEO,
+                            
+                            Apart from this i have been helping Team with Test Automation, Analysing redirects for SEO,
                             exploring and spike future content migration from Drupal entities especially from Content Type Node.
                             Feel free to look at Drupal module to explore contents using API, Forms and also using a Content Explorer interface that allows to filter fields and list and download to a CSV format.
                             You could build something similar using Drupal Views but it would require creating individual views manuallly for each content type and alsa adding extra view formatters if it is missing in your site.
 
                             <br><br>
+                            
                             Finally, given we only need the old Drupal site for oEmbed response and for internal purpose, i have come up with a Drupal module to restrict routes by IP with backend forms with configurable Routes and IP.
-                            You could achieve something like this on Varnish aswell but you might reach out to platform support for configuration help.
+                            You could achieve something like this on Varnish aswell but you might need to reach out to platform support for configuration help and ip whitelisting.
 
                             <br><br>
+                            
                             Another piece of work i have done is to help migrating Drupal assets. 
                             Given its a massive websites with thousands of images and documents, i have created a CLI using RUST to make the process of migrating assets easier and upto date.
-                            There is also a Drupal module to get the latest assets files data from Drupal.  
+                            There is also a Drupal module to get the latest assets files data from Drupal.
+                            The module that takes cares of abandoned files and also drush and batch jobs are available to make sure we can get the json copy for quite a large size of assets,
+                            
                             Feel free to look at the Drupal module for Access Restriction by Routes, CLI and other Drupal modules in my GitHub repository. 
 
                             <br><br>
+                            
                             I will be updating and archiving my recent projects. Please feel free to check my older works on my Resume.
 
                             <br><br>
+                            
                             Thanks for checking out and if you have any questions feel free to reach out to me.
 
-                             <br><br>
+                            <br><br>
                         </p>
                         <div class="project-tags">
                         <span class="tag">Drupal</span>
