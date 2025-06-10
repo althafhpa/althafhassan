@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="k6 Load Testing and GitHub Actions Integration">
+    <title>k6 Load Testing and GitHub Actions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>k6 Load Testing and GitHub Actions Integration</h1>
+    </header>
+    <main>
+        <section>
+            <h2>What is k6?</h2>
+            <p>
+                <a href="https://k6.io/" target="_blank">k6</a> is an open-source load testing tool designed to test the performance, reliability, and scalability of applications. It allows you to define complex test scenarios using JavaScript and provides detailed performance insights.
+            </p>
+        </section>
+        <section>
+            <h2>How to Use k6 for Load Testing</h2>
+            <h3>1. Install k6</h3>
+            <p>Install k6 on your local system or CI/CD environment using a package manager or Docker. Example with Docker:</p>
+            <pre><code>docker run -i loadimpact/k6 run - &lt;script.js</code></pre>
+            <h3>2. Write a Test Script</h3>
+            <p>k6 scripts are written in JavaScript. Here’s an example:</p>
+            <pre><code>
+import http from 'k6/http';
+import { sleep, check } from 'k6';
+
+export let options = {
+    vus: 10, // Virtual Users
+    duration: '30s', // Test duration
+};
+
+export default function () {
+    let res = http.get('https://example.com/api');
+    check(res, {
+        'status is 200': (r) => r.status === 200,
+    });
+    sleep(1);
+}
+            </code></pre>
+            <h3>3. Run the Test</h3>
+            <p>Execute the script locally using:</p>
+            <pre><code>k6 run script.js</code></pre>
+            <h3>4. Analyze Results</h3>
+            <p>k6 provides a summary of statistics like response times, request rates, and error rates. Export results to tools like Grafana for visualization if needed.</p>
+        </section>
+        <section>
+            <h2>Integrating k6 with GitHub Actions</h2>
+            <p>
+                GitHub Actions can automate k6 load testing as part of your CI/CD pipeline, ensuring performance benchmarks are met before deployment.
+            </p>
+            <h3>Steps to Set Up</h3>
+            <ol>
+                <li>Save your k6 test script (e.g., <code>load-test.js</code>) in the repository.</li>
+                <li>Create a GitHub Actions workflow file (e.g., <code>.github/workflows/load-testing.yml</code>).</li>
+                <li>Use the following example workflow configuration:</li>
+            </ol>
+            <pre><code>
+name: k6 Load Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install k6
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnupg software-properties-common
+          curl -s https://dl.k6.io/key.gpg | sudo apt-key add -
+          echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install -y k6
+
+      - name: Run Load Test
+        run: k6 run load-test.js
+            </code></pre>
+        </section>
+        <section>
+            <h2>Extending k6 with GitHub Actions</h2>
+            <ul>
+                <li>
+                    <strong>Performance Gatekeeping:</strong> Use thresholds to fail workflows if performance criteria aren't met:
+                    <pre><code>
+export let options = {
+    thresholds: {
+        http_req_duration: ['p(95)&lt;500'], // 95% of requests should complete within 500ms
+    },
+};
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>Integrate with Grafana:</strong> Push k6 test results to a Grafana dashboard using the <code>xk6-output-prometheus</code> plugin.
+                </li>
+                <li>
+                    <strong>Run Periodically:</strong> Use the <code>schedule</code> event in GitHub Actions to run tests daily or weekly:
+                    <pre><code>
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+                    </code></pre>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 k6 Load Testing Guide</p>
+    </footer>
+</body>
+</html>
