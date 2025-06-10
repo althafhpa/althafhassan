@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testing Component-Based Design Systems with Storybook">
+    <title>Testing Component-Based Design Systems with Storybook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Testing Component-Based Design Systems with Storybook</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction to Testing Component-Based Design Systems</h2>
+            <p>
+                A **Component-Based Design System** built with Storybook can be tested to ensure reusability, consistency, and responsiveness across various platforms such as Drupal websites, Electron-based mobile apps, and digital displays.
+                Testing these components helps ensure high quality and seamless integration into different environments.
+            </p>
+        </section>
+        <section>
+            <h2>Testing with Storybook</h2>
+            <p>
+                Storybook provides an isolated environment for testing UI components. It allows you to write stories for various component states, making it ideal for visual and functional testing.
+            </p>
+            <h3>1. Snapshot Testing</h3>
+            <p>
+                Use tools like <a href="https://jestjs.io/docs/snapshot-testing" target="_blank">Jest Snapshot Testing</a> to capture a rendered component's output and compare it with a baseline snapshot.
+            </p>
+            <pre><code>
+// Example: Snapshot Test for a Button Component
+import renderer from 'react-test-renderer';
+import Button from './Button';
+
+test('Button Snapshot', () => {
+    const tree = renderer.create(<Button label="Click Me" />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
+            </code></pre>
+
+            <h3>2. Accessibility Testing</h3>
+            <p>
+                Integrate tests using tools like <a href="https://github.com/dequelabs/axe-core" target="_blank">axe-core</a> to ensure components meet WCAG accessibility guidelines.
+            </p>
+            <pre><code>
+// Example: Accessibility Test
+import { axe, toHaveNoViolations } from 'jest-axe';
+import { render } from '@testing-library/react';
+import Button from './Button';
+
+expect.extend(toHaveNoViolations);
+
+test('Button Accessibility', async () => {
+    const { container } = render(<Button label="Accessible Button" />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+});
+            </code></pre>
+
+            <h3>3. Visual Regression Testing</h3>
+            <p>
+                Use tools like <a href="https://storybook.js.org/addons/@storybook/addon-visual-regression" target="_blank">Storybook Visual Regression Addon</a> or <a href="https://percy.io/" target="_blank">Percy</a> to compare the rendered UI against previous versions.
+            </p>
+        </section>
+        <section>
+            <h2>Testing Across Platforms</h2>
+            <h3>1. Drupal Websites</h3>
+            <p>
+                Export components as a library and use tools like **Cypress** to test their integration with Drupal themes.
+                Example: Test component rendering in a Twig template:
+            </p>
+            <pre><code>cy.visit('/page-with-component');
+cy.get('.component-class').should('be.visible');</code></pre>
+
+            <h3>2. Mobile Apps (Electron)</h3>
+            <p>
+                Test components with Playwright to ensure proper rendering in Electron apps.
+            </p>
+            <pre><code>test('Component should render in Electron', async ({ page }) => {
+    await page.goto('http://localhost:3000');
+    const component = await page.isVisible('.component-class');
+    expect(component).toBeTruthy();
+});</code></pre>
+
+            <h3>3. Digital Displays</h3>
+            <p>
+                Use headless browsers like Puppeteer to simulate rendering on large screens.
+            </p>
+            <pre><code>const puppeteer = require('puppeteer');
+
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto('http://display-board-url.com');
+    const isVisible = await page.$eval('.component-class', el => !!el);
+    console.log(isVisible ? 'Component renders correctly' : 'Component failed to render');
+    await browser.close();
+})();</code></pre>
+        </section>
+        <section>
+            <h2>Integrating Tests into CI/CD Pipelines</h2>
+            <p>Automate your tests using GitHub Actions to run them in parallel for faster execution.</p>
+            <h3>Example Workflow</h3>
+            <pre><code>
+name: Component Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-components:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [drupal, electron, display]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: |
+          if [ "${{ matrix.platform }}" == "drupal" ]; then
+            npx cypress run;
+          elif [ "${{ matrix.platform }}" == "electron" ]; then
+            npx playwright test;
+          elif [ "${{ matrix.platform }}" == "display" ]; then
+            node test-display.js;
+          fi
+            </code></pre>
+        </section>
+        <section>
+            <h2>Best Practices for Testing Design Systems</h2>
+            <ul>
+                <li>Automate tests for component states, accessibility, and responsiveness.</li>
+                <li>Use version control to manage design system releases.</li>
+                <li>Test components in isolation and in real-world integrations.</li>
+                <li>Run tests in parallel to reduce execution time.</li>
+                <li>Regularly update test scripts to adapt to design system changes.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Testing Component-Based Design Systems</p>
+    </footer>
+</body>
+</html>
