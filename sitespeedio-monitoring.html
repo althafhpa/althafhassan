@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testing and Monitoring with Sitespeed.io">
+    <title>Testing and Monitoring with Sitespeed.io</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Testing and Monitoring with Sitespeed.io</h1>
+    </header>
+    <main>
+        <section>
+            <h2>What is Sitespeed.io?</h2>
+            <p>
+                <a href="https://www.sitespeed.io/" target="_blank">Sitespeed.io</a> is an open-source tool for testing and monitoring the performance of websites and web applications. It provides detailed insights into page speed, user experience, and web performance metrics.
+            </p>
+        </section>
+        <section>
+            <h2>How to Use Sitespeed.io</h2>
+            <h3>1. Install Sitespeed.io</h3>
+            <p>
+                Install Sitespeed.io using Node.js or Docker. Example for Docker:
+            </p>
+            <pre><code>docker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io https://example.com</code></pre>
+            <h3>2. Run a Test</h3>
+            <p>
+                Execute a command to test your website's performance. Example:
+            </p>
+            <pre><code>sitespeed.io https://example.com --browsertime.iterations 3 --outputFolder /path/to/results</code></pre>
+            <h3>3. Analyze Results</h3>
+            <p>
+                Sitespeed.io generates a detailed report, including metrics like load time, largest contentful paint (LCP), and cumulative layout shift (CLS). Use these insights to optimize your website.
+            </p>
+        </section>
+        <section>
+            <h2>Tips for Using Sitespeed.io to Monitor Large Websites</h2>
+            <h3>1. Automate Regular Testing</h3>
+            <p>
+                Schedule regular tests using cron jobs or CI/CD pipelines to monitor performance over time. Example of a cron job:
+            </p>
+            <pre><code>0 0 * * * docker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io https://example.com</code></pre>
+            <h3>2. Test Critical Pages</h3>
+            <p>
+                Focus on monitoring critical pages, such as the homepage, product pages, and checkout flow, for large websites.
+            </p>
+            <h3>3. Monitor Dynamic Content</h3>
+            <p>
+                Use Sitespeed.io scripting capabilities to test dynamic content and APIs. Example script:
+            </p>
+            <pre><code>module.exports = async function(context, commands) {
+    await commands.navigate('https://example.com');
+    await commands.wait.byTime(3000); // Wait for 3 seconds
+    await commands.measure.start('API Test');
+    let response = await commands.js.run('return fetch("/api/data").then(res => res.json());');
+    context.log.info(response);
+    await commands.measure.stop();
+};</code></pre>
+            <h3>4. Visualize Results</h3>
+            <p>
+                Push test results to tools like Grafana for visualization and long-term trend analysis. Use the <code>--graphite.host</code> option to send data to a Graphite or Grafana instance.
+            </p>
+            <h3>5. Monitor Third-Party Content</h3>
+            <p>
+                Analyze the impact of third-party scripts (e.g., ads, analytics) on your website's performance. Use the <code>--thirdParty</code> flag to track third-party requests.
+            </p>
+            <h3>6. Set Performance Budgets</h3>
+            <p>
+                Define performance budgets to enforce load time, request size, and other metrics. Example:
+            </p>
+            <pre><code>{
+  "browsers": {
+    "chrome": {
+      "lighthouse": {
+        "performance": 90
+      }
+    }
+  }
+}</code></pre>
+        </section>
+        <section>
+            <h2>Best Practices for Monitoring Large Websites</h2>
+            <ul>
+                <li>Test from multiple geographic locations to understand regional performance differences.</li>
+                <li>Include both desktop and mobile testing to optimize for all devices.</li>
+                <li>Monitor API performance separately for dynamic content.</li>
+                <li>Regularly update and maintain test scripts to adapt to website changes.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Sitespeed.io Monitoring Guide</p>
+    </footer>
+</body>
+</html>
