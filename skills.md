@@ -2,7 +2,7 @@
 
 ## PHP Development
 - Extensive experience in PHP development, including:
-  - Local development using `ddev`
+  - Local development using docker container based tool ddev
   - Test-Driven Development (TDD) with PHP
   - Writing and executing tests with PHPUnit
   - Composer-based development
@@ -15,6 +15,8 @@
   - Automation in Acquia using Acquia Pipelines, Acquia CLI, and Drush.
 - Setting up deployment pipelines using GitHub, Bitbucket, and GitLab.
 - Migration and upgrade of projects with expertise.
+- Good understanding of various security controls mechanisms.
+- Good understanding of networking and middleware for web applications.
 
 ## Code Quality and Tools
 - Experience using static code analysis tools like PHPStan to discover bugs and ensure code standards.
