@@ -94,6 +94,10 @@
   - Set up sprints, backlog grooming, iteration planning, story elaboration, and planning sessions.
   - Conducted iteration retrospectives, stakeholder workshops, and team-building sessions.
   - Focused on team priorities and fostering a strong team culture.
+  - Have experience working as tech lead and building inhouse team for a start up.
+  - Understands the importance of people over process in ahole development.
+  - Team way of working with clarity of what is ecpected is agreed colloboraively.
+  - As a Lead i have tried to Create an environment where it is safe to fail and keep the team sleays motivated to push their boundaries to learn and contribute to success of the team.
 
 ## Additional Highlights
 - Created bash scripts and custom CLIs for automation tasks.
